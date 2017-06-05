@@ -4,7 +4,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get home" do
     #staticpageのhomeのURLにアクセスする
-    get static_pages_home_url
+    get root_path
     #成功します
     assert_response :success
     #タイトルが下記になっていること
@@ -13,7 +13,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get help" do
     #staticのhelpページにアクセスする
-    get static_pages_help_url
+    get help_path
     #成功します
     assert_response :success
     #タイトルが下記になっていること
@@ -22,10 +22,19 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get about" do
     #staticpageのaboutページにgetでアクセスする
-    get static_pages_about_url
+    get about_path
     #成功する
     assert_response :success
     #タイトルが下記になっていること
     assert_select "title", "About|Ruby on Rails Tutorial Sample App"
+  end
+
+  test "should get contact" do
+    #Contact PageにGetでアクセスする
+    get contact_path
+    #成功する
+    assert_response :success
+    #タイトルが下記のようになっている
+    assert_select "title","Contact|Ruby on Rails Tutorial Sample App"
   end
 end
