@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       #保存成功パターン
       if @user.save
+        log_in @user
         flash[:success] = "Welcome to the Samples App!!"
         redirect_to @user
       end
